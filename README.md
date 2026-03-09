@@ -54,13 +54,13 @@ Proceedings of **LREC 2026**
 
 各データは以下の情報を含みます。
 
-* 破綻パターンID (``question_id``)
-* 対話履歴（最後のシステム発話が対話破綻を引き起こしている）(dialogue_history)
-* 対話破綻の類型 (breakdown_type)
-* 破綻理由 (breakdown_reason)
-* 破綻度 (severity)
-* ユーザの反応発話 (user_response)
-* ユーザが期待する修復発話 (expected_repair)
+* 破綻パターンID ``question_id``
+* 対話履歴（最後のシステム発話が対話破綻を引き起こしている）``dialogue_history``
+* 対話破綻の類型 ``breakdown_type``
+* 破綻理由 ``breakdown_reason``
+* 破綻度 ``severity``
+* ユーザの反応発話 ``user_response``
+* ユーザが期待する修復発話 ``expected_repair``
 
 例：
 
