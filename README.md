@@ -115,8 +115,6 @@ Proceedings of **LREC 2026**
 
 本データセットは **Creative Commons Attribution 4.0 International (CC BY 4.0)** の下で公開されています。
 
-詳細は LICENSE ファイルをご確認ください。
-
 ---
 
 # 引用
