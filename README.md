@@ -80,12 +80,14 @@ Proceedings of **LREC 2026**
   "expected_repair": "イチゴのショートケーキです"}
 }
 
-{"question_id": 29, "dialogue_history":
-  [
+{
+  "question_id": 29,
+  "dialogue_history": [
     {"role": "user", "text": "日本の首都は東京です。\n"},
     {"role": "system", "text": "そうですね、東京はユニバーサルスタジオジャパンも有名ですよね。"},
     {"role": "user", "text": NaN},
-    {"role": "system", "text": NaN}],
+    {"role": "system", "text": NaN}
+  ],
   "breakdown_type": "誤情報",
   "breakdown_reason": "ユニバーサルスタジオジャパンは大阪にあるため，明らかに事実とは異なる内容が含まれている",
   "severity": 10,
