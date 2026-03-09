@@ -62,6 +62,8 @@ Proceedings of **LREC 2026**
 * ユーザの反応発話 ``user_response``
 * ユーザが期待する修復発話 ``expected_repair``
 
+なお、対話履歴は2発話から4発話から構成され、存在しない場合はNaNが格納されています。
+
 例：
 
 ```json
