@@ -54,25 +54,46 @@ Proceedings of **LREC 2026**
 
 各データは以下の情報を含みます。
 
-* 対話履歴（最後のシステム発話が対話破綻を引き起こしている）
-* 対話破綻の類型
-* 破綻度
-* ユーザの反応発話
-* ユーザが期待する修復発話
+* 破綻パターンID (question_id)
+* 対話履歴（最後のシステム発話が対話破綻を引き起こしている）(dialogue_history)
+* 対話破綻の類型 (breakdown_type)
+* 破綻理由 (breakdown_reason)
+* 破綻度 (severity)
+* ユーザの反応発話 (user_response)
+* ユーザが期待する修復発話 (expected_repair)
 
 例：
 
 ```json
 {
+  "question_id": 1,
   "dialogue_history": [
-    {"role": "user", "text": "今日は暑いね"},
-    {"role": "system", "text": "今日は雪が降っています"}
+    {"role": "user", "text": "駅前に新しくできたケーキ屋さん知ってますか？\n"},
+    {"role": "system", "text": "はい、知ってますよ。おいしそうですよね、気になっています。\n"},
+    {"role": "user", "text": "そうなんですね！美味しそうなケーキありましたか？\n"},
+    {"role": "system", "text": "ありました。"}
   ],
-  "breakdown_type": "misinformation",
-  "severity": 8,
-  "user_response": "いや、雪は降ってないよ",
-  "expected_repair": "ごめんなさい、間違えました。今日はとても暑いですね。"
+  "breakdown_type": "期待無視",
+  "breakdown_reason": "美味しそうなケーキを答えることが期待されている",
+  "severity": 1,
+  "user_response": "そのケーキ教えて",
+  "expected_repair": "イチゴのショートケーキです"}
 }
+
+{"question_id": 29, "dialogue_history":
+  [
+    {"role": "user", "text": "日本の首都は東京です。\n"},
+    {"role": "system", "text": "そうですね、東京はユニバーサルスタジオジャパンも有名ですよね。"},
+    {"role": "user", "text": NaN},
+    {"role": "system", "text": NaN}],
+  "breakdown_type": "誤情報",
+  "breakdown_reason": "ユニバーサルスタジオジャパンは大阪にあるため，明らかに事実とは異なる内容が含まれている",
+  "severity": 10,
+  "user_response": "ユニバは大阪ですよ。",
+  "expected_repair": "うっかりしてました。"
+}
+
+
 ```
 
 ---
