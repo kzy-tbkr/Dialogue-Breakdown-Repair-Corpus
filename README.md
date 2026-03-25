@@ -126,7 +126,7 @@ Proceedings of **LREC 2026**
 @inproceedings{tsubokura2026repair,
   title={A Corpus for Personalized Dialogue Breakdown Repair in Japanese Open-Domain Conversations},
   author={Tsubokura, Kazuya and Iribe, Yurie and Kitaoka, Norihide},
-  booktitle={Proceedings of LREC},
+  booktitle={Language Resources and Evaluation Conference (LREC)},
   year={2026}
 }
 ```
