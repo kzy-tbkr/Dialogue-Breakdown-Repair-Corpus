@@ -30,10 +30,10 @@ These issues are commonly referred to as **dialogue breakdowns**, which may conf
 
 This corpus was constructed to analyze the following aspects when a dialogue breakdown occurs:
 
-- how strongly users perceive the system utterance as a breakdown  
+- how strongly users perceive the system utterance as a breakdown (Q1)  
   (**1 = not a breakdown, 10 = severe breakdown**)
-- how users respond to the broken system utterance
-- what kind of repair utterance users expect from the system
+- how users respond to the broken system utterance (Q2)
+- what kind of repair utterance users expect from the system (Q3)
 
 ## Dataset Statistics
 
