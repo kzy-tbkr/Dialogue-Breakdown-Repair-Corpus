@@ -1,11 +1,11 @@
 # Dialogue Breakdown Repair Corpus (DBRC)
 
-本リポジトリでは、雑談対話システムとのテキスト対話において**対話破綻が発生した際にユーザがどのように反応し、どのような修復発話を期待するか**を分析するために構築した、「日本語対話破綻修復コーパス」を公開しています。
+This repository releases the **Japanese Dialogue Breakdown Repair Corpus (DBRC)**, which was constructed to analyze **how users react to dialogue breakdowns in open-domain chat-oriented dialogue systems and what kinds of repair utterances they expect from the system**.
 
-データセットはこちらから入手できます。
-[data/DBRC_dataset_v1.0.jsonl](data/DBRC_dataset_v1.0.jsonl)
+The dataset is available here:
 
-本データセットは以下の論文で発表予定です。
+
+This dataset is presented in the following paper:
 
 **Kazuya Tsubokura et al. (2026)**
 *A Corpus for Personalized Dialogue Breakdown Repair in Japanese Open-Domain Conversations*
@@ -13,59 +13,67 @@ Proceedings of **LREC 2026**
 
 ---
 
-# 概要
+## Overview
 
-近年、大規模言語モデル（LLM）の進展により対話システムの応答精度は大きく向上しました。
-しかし、依然として以下のような問題が発生することがあります。
+Recent advances in Large Language Models (LLMs) have significantly improved the response quality of dialogue systems.  
+However, dialogue systems still occasionally produce problematic responses, such as:
 
-* 誤情報を含む発話（hallucination）
-* 文脈を無視した応答
-* 常識に反する発話
-* 話題の逸脱
+- utterances containing incorrect information (**hallucinations**)
+- responses that ignore the dialogue context
+- utterances inconsistent with common sense
+- topic shifts that break conversational flow
 
-このような問題は **対話破綻（dialogue breakdown）** と呼ばれ、ユーザに不快感を与えたり、困惑させる要因となります。
+These issues are commonly referred to as **dialogue breakdowns**, which may confuse or frustrate users.
 
-本コーパスは、対話破綻が発生した状況において
+This corpus was constructed to analyze the following aspects when a dialogue breakdown occurs:
 
-* システムの破綻した発話に対して、ユーザがどの程度破綻と感じるか（1:破綻ではない～10:破綻10段階） 
-* システムの破綻した発話に対して、ユーザがどのような応答をするか
-* ユーザがシステムにどのような修復発話を期待するか
+- how strongly users perceive the system utterance as a breakdown  
+  (**1 = not a breakdown, 10 = severe breakdown**)
+- how users respond to the broken system utterance
+- what kind of repair utterance users expect from the system
 
-を分析することを目的として構築されました。
+## Dataset Statistics
 
----
+| Item | Value |
+|---|---|
+| Number of participants | 57 |
+| Breakdown types | 10 |
+| Breakdown patterns | 140 (10 types × 14 patterns each) |
+| Repair instances | 3,990 (57 participants × 70 responses each) |
+| Language | Japanese |
 
-# データセット概要
+The 10 dialogue breakdown types were selected based on the taxonomy proposed in the prior work by Higashinaka et al. (2022).
 
-| 項目     | 内容    |
-| ------ | ----- |
-| 参加者数   | 57名   |
-| 対話破綻類型 | 10種類  |
-| 破綻パターン | 140個（破綻類型10種類×各14パターン）|
-| 修復事例数  | 3,990個（57名×各70回答） |
-| 言語     | 日本語   |
+The selected types are:
 
-対話破綻類型は、[先行研究 (東中 他; 2022)](https://www.jstage.jst.go.jp/article/jnlp/29/2/29_443/_article/-char/ja/)を参考に次の10種類を選定しました。
+- Wrong information
+- Ignore question
+- Ignore expectation
+- Unclear utterance intention
+- Topic transition error
+- Lack of information
+- Self-contradiction
+- Contradiction with the user's utterance
+- Repetition
+- Lack of common sense
 
-誤情報，質問無視，期待無視，発話意図不明確，話題遷移エラー，情報不足，自己矛盾，相手の発話との矛盾，繰り返し，常識欠如
+## Data Format
 
----
+Each data instance contains the following fields:
 
-# データ形式
+- `question_id`: breakdown pattern ID
+- `dialogue_history`: dialogue history  
+  (the last system utterance causes the dialogue breakdown)
+- `breakdown_type`: type of dialogue breakdown
+- `breakdown_reason`: reason why the utterance is considered a breakdown
+- `severity`: perceived breakdown severity
+- `user_response`: user’s response utterance
+- `expected_repair`: repair utterance expected by the user
 
-各データは以下の情報を含みます。
+The dialogue history consists of **2 to 4 utterances**.  
+If an utterance does not exist, `NaN` is stored.
 
-* 破綻パターンID ``question_id``
-* 対話履歴（最後のシステム発話が対話破綻を引き起こしている）``dialogue_history``
-* 対話破綻の類型 ``breakdown_type``
-* 破綻理由 ``breakdown_reason``
-* 破綻度 ``severity``
-* ユーザの反応発話 ``user_response``
-* ユーザが期待する修復発話 ``expected_repair``
-
-なお、対話履歴は2発話から4発話から構成され、存在しない場合は``NaN``が格納されています。
-
-例：
+### Example
 
 ```json
 {
@@ -82,7 +90,9 @@ Proceedings of **LREC 2026**
   "user_response": "そのケーキ教えて",
   "expected_repair": "イチゴのショートケーキです"}
 }
+```
 
+```json
 {
   "question_id": 29,
   "dialogue_history": [
@@ -101,26 +111,22 @@ Proceedings of **LREC 2026**
 
 ```
 
----
+## Potential Research Applications
 
-# 想定される研究用途
+This dataset can be used for research on:
 
-本データセットは以下の研究に利用できます。
+- error analysis of dialogue systems
+- generation of repair utterances for dialogue breakdown recovery
+- personalized dialogue repair strategies
+- dialogue breakdown severity prediction
 
-* 対話システムのエラー分析
-* 対話破綻を修復する発話の生成
+## License
 
----
+This dataset is released under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
 
-# ライセンス
+## Citation
 
-本データセットは **Creative Commons Attribution 4.0 International (CC BY 4.0)** の下で公開されています。
-
----
-
-# 引用
-
-本データセットを使用する場合は、以下の論文を引用してください。
+If you use this dataset, please cite:
 
 ```bibtex
 @inproceedings{tsubokura2026repair,
@@ -131,15 +137,20 @@ Proceedings of **LREC 2026**
 }
 ```
 
----
+## Disclaimer
 
-# 免責事項
+This dataset is released for research purposes only.
 
-本データセットは研究目的で公開されています。
-データの利用によって生じたいかなる損害についても、著者は責任を負いません。
+The authors are not responsible for any damages resulting from the use of this dataset.
 
----
+## Contact
 
-# 連絡先
-愛知県立大学
-坪倉 和哉
+For questions about the dataset, please contact:
+
+**Kazuya Tsubokura**
+
+Aichi Prefectural University
+
+Email: tsubokura [at] ist.aichi-pu.ac.jp
+
+(Please replace `[at]` with `@`.)
