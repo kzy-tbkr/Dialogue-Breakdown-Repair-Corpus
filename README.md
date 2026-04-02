@@ -4,6 +4,7 @@ This repository releases the **Japanese Dialogue Breakdown Repair Corpus (DBRC)*
 
 The dataset is available here:
 
+[data/DBRC_dataset_v1.0.jsonl](data/DBRC_dataset_v1.0.jsonl)
 
 This dataset is presented in the following paper:
 
