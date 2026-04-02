@@ -1,6 +1,6 @@
 # Dialogue Breakdown Repair Corpus (DBRC)
 
-[English](README.md) | [日本語](README_ja.md)
+[English](./README.md) | [日本語](./README_ja.md)
 
 This repository releases the **Japanese Dialogue Breakdown Repair Corpus (DBRC)**, which was constructed to analyze **how users react to dialogue breakdowns in open-domain chat-oriented dialogue systems and what kinds of repair utterances they expect from the system**.
 
