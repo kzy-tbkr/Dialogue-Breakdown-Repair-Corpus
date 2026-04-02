@@ -1,5 +1,7 @@
 # Dialogue Breakdown Repair Corpus (DBRC)
 
+[English](./README.md) | [日本語](./README_ja.md)
+
 本リポジトリでは、雑談対話システムとのテキスト対話において**対話破綻が発生した際にユーザがどのように反応し、どのような修復発話を期待するか**を分析するために構築した、「日本語対話破綻修復コーパス」を公開しています。
 
 ![Overview of this corpus](img/overview.png)
