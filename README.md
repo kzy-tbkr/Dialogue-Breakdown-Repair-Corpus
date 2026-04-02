@@ -2,6 +2,8 @@
 
 This repository releases the **Japanese Dialogue Breakdown Repair Corpus (DBRC)**, which was constructed to analyze **how users react to dialogue breakdowns in open-domain chat-oriented dialogue systems and what kinds of repair utterances they expect from the system**.
 
+![Overview of this corpus](img/)
+
 The dataset is available here:
 
 [data/DBRC_dataset_v1.0.jsonl](data/DBRC_dataset_v1.0.jsonl)
